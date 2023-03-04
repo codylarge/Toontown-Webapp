@@ -4,82 +4,138 @@
     <link rel="stylesheet" href="../css/accuracy.css">
     <title>Accuracy Calculator</title>
     <script type = "text/javascript" src="../js/accuracycalc.js"></script>
+    <script type = "text/javascript" src="../js/dropdown.js"></script>
     <h1>Accuracy Calculator</h1>
     <h2>
         <p>
-            <form class="calcdata">
-                <label for="level">Cog level(Highest level for group):</label>
-                <input type="number" id="coglevel" name="coglevel"><br>
-                <label for="track">Track progression(7 if max):</label>
-                <input type="number" id="trackexp" name="trackexp">
-            </form>
+        <t class="infotab">Level: <t id="coglevel">12</t></t>
+        <t class="infotab">TrackEXP: <t id="trackexp">7</t></t>
+        <t class="infotab">Stuns: <t id="stuns">0</t></t>
         </p>
     </h2>
+    <h3>
+        <p class="dropdowncontainer">
+            <div class="dropdown">  
+                <button onclick="cogLevels()" class="dropbtn">Cog Level</button>  
+                <div id="cogleveldropdown" class="dropdown-content">  
+                  <a  onclick="setCogLevel(1)">1</a>  
+                  <a  onclick="setCogLevel(2)">2</a>
+                  <a  onclick="setCogLevel(3)">3</a>
+                  <a  onclick="setCogLevel(4)">4</a>
+                  <a  onclick="setCogLevel(5)">5</a>
+                  <a  onclick="setCogLevel(6)">6</a>  
+                  <a  onclick="setCogLevel(7)">7</a>
+                  <a  onclick="setCogLevel(8)">8</a>
+                  <a  onclick="setCogLevel(9)">9</a>
+                  <a  onclick="setCogLevel(10)">10</a>
+                  <a  onclick="setCogLevel(11)">11</a>  
+                  <a  onclick="setCogLevel(12)">12</a>
+                  <a  onclick="setCogLevel(13)">13</a>
+                  <a  onclick="setCogLevel(14)">14</a>
+                  <a  onclick="setCogLevel(15)">15</a>
+                  <a  onclick="setCogLevel(16)">16</a>  
+                  <a  onclick="setCogLevel(17)">17</a>
+                  <a  onclick="setCogLevel(18)">18</a>
+                  <a  onclick="setCogLevel(19)">19</a>
+                  <a  onclick="setCogLevel(20)">20</a>
+                </div>  
+              </div>  
+              <div class="dropdown">  
+                <button onclick="trackProgress()" class="dropbtn">Track Progression</button>  
+                <div id="trackprog" class="dropdown-content">  
+                    <a  onclick="setTrackExp(1)">1</a>  
+                    <a  onclick="setTrackExp(2)">2</a>  
+                    <a  onclick="setTrackExp(3)">3</a>  
+                    <a  onclick="setTrackExp(4)">4</a>  
+                    <a  onclick="setTrackExp(5)">5</a>  
+                    <a  onclick="setTrackExp(6)">6</a>  
+                    <a  onclick="setTrackExp(7)">7</a>  
+                </div>  
+              </div>  
+                
+              <div class="dropdown">  
+                <button onclick="stuns()" class="dropbtn">Stuns</button>  
+                <div id="stundropdown" class="dropdown-content">  
+                    <a onclick="setStuns(0)">0</a>  
+                    <a onclick="setStuns(1)">1</a>
+                    <a onclick="setStuns(2)">2</a>
+                    <a onclick="setStuns(3)">3</a>  
+                </div>  
+              </div>  
+            <button onclick="reset()" class="reset">Reset</button>  
+        </p>
+    </h3>
+    <h4>
+        <p>
+            Info: "Track progression" = amount of gags toon has unlocked in the track being used.
+        </p>
+    </h4>
+    <p class="accuracydisplay">Gag Accuracy: <t id="accuracydisplay"></t></p>
 </head>
 <body>    
     <div class = "row">
         <div class = "column">
-            <button class = "gagbutton toonup"><img src = "../images/gag/feather.png" class ="gagimage"></button>   
-            <button class = "gagbutton toonup"><img src = "../images/gag/mega.png"class ="gagimage"></button>   
-            <button class = "gagbutton toonup"><img src = "../images/gag/lipstick.png"class ="gagimage"></button>   
-            <button class = "gagbutton toonup"><img src = "../images/gag/cane.png"class ="gagimage"></button>   
-            <button class = "gagbutton toonup"><img src = "../images/gag/pixie.png"class ="gagimage"></button>   
-            <button class = "gagbutton toonup"><img src = "../images/gag/juggle.png"class ="gagimage"></button>   
-            <button class = "gagbutton toonup"><img src = "../images/gag/dive.png"class ="gagimage"></button>   
+            <button class = "gagbutton toonup" onclick=" calculateAccuracy(70)"><img src = "../images/gag/feather.png" class ="gagimage"></button>   
+            <button class = "gagbutton toonup" onclick=" calculateAccuracy(70)"><img src = "../images/gag/mega.png"class ="gagimage"></button>   
+            <button class = "gagbutton toonup" onclick=" calculateAccuracy(70)"><img src = "../images/gag/lipstick.png"class ="gagimage"></button>   
+            <button class = "gagbutton toonup" onclick=" calculateAccuracy(70)"><img src = "../images/gag/cane.png"class ="gagimage"></button>   
+            <button class = "gagbutton toonup" onclick=" calculateAccuracy(70)"><img src = "../images/gag/pixie.png"class ="gagimage"></button>   
+            <button class = "gagbutton toonup" onclick=" calculateAccuracy(70)"><img src = "../images/gag/juggle.png"class ="gagimage"></button>   
+            <button class = "gagbutton toonup" onclick=" calculateAccuracy(70)"><img src = "../images/gag/dive.png"class ="gagimage"></button>   
         </div>
         <div class = "column">
-            <button class = "gagbutton trap" onclick="setTrap(12)"><img src = "../images/gag/banana.png"class ="gagimage"></button>   
-            <button class = "gagbutton trap" onclick="setTrap(20)"><img src = "../images/gag/rake.png"class ="gagimage"></button>   
-            <button class = "gagbutton trap" onclick="setTrap(35)"><img src = "../images/gag/marbles.png"class ="gagimage"></button>   
-            <button class = "gagbutton trap" onclick="setTrap(50)"><img src = "../images/gag/quicksand.png"class ="gagimage"></button>   
-            <button class = "gagbutton trap" onclick="setTrap(85)"><img src = "../images/gag/trapdoor.png"class ="gagimage"></button>   
-            <button class = "gagbutton trap" onclick="setTrap(180)"><img src = "../images/gag/tnt.png"class ="gagimage"></button>   
-            <button class = "gagbutton trap" onclick="setTrap(200)"><img src = "../images/gag/train.png"class ="gagimage"></button>   
+            <button class = "gagbutton trap" onclick="calculateAccuracy(100)"><img src = "../images/gag/banana.png"class ="gagimage"></button>   
+            <button class = "gagbutton trap" onclick="calculateAccuracy(100)"><img src = "../images/gag/rake.png"class ="gagimage"></button>   
+            <button class = "gagbutton trap" onclick="calculateAccuracy(100)"><img src = "../images/gag/marbles.png"class ="gagimage"></button>   
+            <button class = "gagbutton trap" onclick="calculateAccuracy(100)"><img src = "../images/gag/quicksand.png"class ="gagimage"></button>   
+            <button class = "gagbutton trap" onclick="calculateAccuracy(100)"><img src = "../images/gag/trapdoor.png"class ="gagimage"></button>   
+            <button class = "gagbutton trap" onclick="calculateAccuracy(100)"><img src = "../images/gag/tnt.png"class ="gagimage"></button>   
+            <button class = "gagbutton trap" onclick="calculateAccuracy(100)"><img src = "../images/gag/train.png"class ="gagimage"></button>   
         </div>
         <div class = "column">
-            <button class = "gagbutton lure" onclick="lure()"><img src = "../images/gag/1bill.png"class ="gagimage"></button>   
-            <button class = "gagbutton lure" onclick="lure()"><img src = "../images/gag/smallmagnet.png"class ="gagimage"></button>   
-            <button class = "gagbutton lure" onclick="lure()"><img src = "../images/gag/5bill.png"class ="gagimage"></button>   
-            <button class = "gagbutton lure" onclick="lure()"><img src = "../images/gag/bigmagnet.png"class ="gagimage"></button>   
-            <button class = "gagbutton lure" onclick="lure()"><img src = "../images/gag/10bill.png"class ="gagimage"></button>   
-            <button class = "gagbutton lure" onclick="lure()"><img src = "../images/gag/hypno.png"class ="gagimage"></button>   
-            <button class = "gagbutton lure" onclick="lure()"><img src = "../images/gag/pres.png"class ="gagimage"></button>   
+            <button class = "gagbutton lure" onclick="calculateAccuracy(50)"><img src = "../images/gag/1bill.png"class ="gagimage"></button>   
+            <button class = "gagbutton lure" onclick="calculateAccuracy(50)"><img src = "../images/gag/smallmagnet.png"class ="gagimage"></button>   
+            <button class = "gagbutton lure" onclick="calculateAccuracy(60)"><img src = "../images/gag/5bill.png"class ="gagimage"></button>   
+            <button class = "gagbutton lure" onclick="calculateAccuracy(60)"><img src = "../images/gag/bigmagnet.png"class ="gagimage"></button>   
+            <button class = "gagbutton lure" onclick="calculateAccuracy(70)"><img src = "../images/gag/10bill.png"class ="gagimage"></button>   
+            <button class = "gagbutton lure" onclick="calculateAccuracy(70)"><img src = "../images/gag/hypno.png"class ="gagimage"></button>   
+            <button class = "gagbutton lure" onclick="calculateAccuracy(95)"><img src = "../images/gag/pres.png"class ="gagimage"></button>   
         </div>
         <div class = "column">
-                <button class = "gagbutton sound" onclick="soundDamage(4)"><img src = "../images/gag/bike.png"class ="gagimage"></button>   
-                <button class = "gagbutton sound" onclick="soundDamage(7)"><img src = "../images/gag/whistle.png"class ="gagimage"></button>   
-                <button class = "gagbutton sound" onclick="soundDamage(11)"><img src = "../images/gag/bugle.png"class ="gagimage"></button>   
-                <button class = "gagbutton sound" onclick="soundDamage(16)"><img src = "../images/gag/aooga.png"class ="gagimage"></button>   
-                <button class = "gagbutton sound" onclick="soundDamage(21)"><img src = "../images/gag/trunk.png"class ="gagimage"></button>   
-                <button class = "gagbutton sound" onclick="soundDamage(50)"><img src = "../images/gag/fog.png"class ="gagimage"></button>   
-                <button class = "gagbutton sound" onclick="soundDamage(90)"><img src = "../images/gag/opera.png"class ="gagimage"></button>   
+                <button class = "gagbutton sound" onclick="calculateAccuracy(95)"><img src = "../images/gag/bike.png"class ="gagimage"></button>   
+                <button class = "gagbutton sound" onclick="calculateAccuracy(95)"><img src = "../images/gag/whistle.png"class ="gagimage"></button>   
+                <button class = "gagbutton sound" onclick="calculateAccuracy(95)"><img src = "../images/gag/bugle.png"class ="gagimage"></button>   
+                <button class = "gagbutton sound" onclick="calculateAccuracy(95)"><img src = "../images/gag/aooga.png"class ="gagimage"></button>   
+                <button class = "gagbutton sound" onclick="calculateAccuracy(95)"><img src = "../images/gag/trunk.png"class ="gagimage"></button>   
+                <button class = "gagbutton sound" onclick="calculateAccuracy(95)"><img src = "../images/gag/fog.png"class ="gagimage"></button>   
+                <button class = "gagbutton sound" onclick="calculateAccuracy(95)"><img src = "../images/gag/opera.png"class ="gagimage"></button>   
         </div>
         <div class = "column">
-                <button class = "gagbutton throw" onclick="dealDamage(6, 'throw')"><img src = "../images/gag/cupcake.png"class ="gagimage"></button>   
-                <button class = "gagbutton throw" onclick="dealDamage(10, 'throw')"><img src = "../images/gag/fruitslice.png"class ="gagimage"></button>   
-                <button class = "gagbutton throw" onclick="dealDamage(17, 'throw')"><img src = "../images/gag/creamslice.png"class ="gagimage"></button>   
-                <button class = "gagbutton throw" onclick="dealDamage(27, 'throw')"><img src = "../images/gag/fruitpie.png"class ="gagimage"></button>   
-                <button class = "gagbutton throw" onclick="dealDamage(40, 'throw')"><img src = "../images/gag/creampie.png"class ="gagimage"></button>   
-                <button class = "gagbutton throw" onclick="dealDamage(100, 'throw')"><img src = "../images/gag/cake.png"class ="gagimage"></button>   
-                <button class = "gagbutton throw" onclick="dealDamage(120, 'throw')"><img src = "../images/gag/wedding.png"class ="gagimage"></button>   
+                <button class = "gagbutton throw" onclick="calculateAccuracy(75)"><img src = "../images/gag/cupcake.png"class ="gagimage"></button>   
+                <button class = "gagbutton throw" onclick="calculateAccuracy(75)"><img src = "../images/gag/fruitslice.png"class ="gagimage"></button>   
+                <button class = "gagbutton throw" onclick="calculateAccuracy(75)"><img src = "../images/gag/creamslice.png"class ="gagimage"></button>   
+                <button class = "gagbutton throw" onclick="calculateAccuracy(75)"><img src = "../images/gag/fruitpie.png"class ="gagimage"></button>   
+                <button class = "gagbutton throw" onclick="calculateAccuracy(75)"><img src = "../images/gag/creampie.png"class ="gagimage"></button>   
+                <button class = "gagbutton throw" onclick="calculateAccuracy(75)"><img src = "../images/gag/cake.png"class ="gagimage"></button>   
+                <button class = "gagbutton throw" onclick="calculateAccuracy(75)"><img src = "../images/gag/wedding.png"class ="gagimage"></button>   
         </div>
         <div class = "column">
-                <button class = "gagbutton squirt" onclick="dealDamage(4, 'squirt')"><img src = "../images/gag/flower.png"class ="gagimage"></button>   
-                <button class = "gagbutton squirt" onclick="dealDamage(8, 'squirt')"><img src = "../images/gag/water.png"class ="gagimage"></button>   
-                <button class = "gagbutton squirt" onclick="dealDamage(12, 'squirt')"><img src = "../images/gag/gun.png"class ="gagimage"></button>   
-                <button class = "gagbutton squirt" onclick="dealDamage(21, 'squirt')"><img src = "../images/gag/seltzer.png"class ="gagimage"></button>   
-                <button class = "gagbutton squirt" onclick="dealDamage(30, 'squirt')"><img src = "../images/gag/hose.png"class ="gagimage"></button>   
-                <button class = "gagbutton squirt" onclick="dealDamage(80, 'squirt')"><img src = "../images/gag/storm.png"class ="gagimage"></button>   
-                <button class = "gagbutton squirt" onclick="dealDamage(105, 'squirt')"><img src = "../images/gag/geyser.png"class ="gagimage"></button>   
+                <button class = "gagbutton squirt" onclick="calculateAccuracy(95)"><img src = "../images/gag/flower.png"class ="gagimage"></button>   
+                <button class = "gagbutton squirt" onclick="calculateAccuracy(95)"><img src = "../images/gag/water.png"class ="gagimage"></button>   
+                <button class = "gagbutton squirt" onclick="calculateAccuracy(95)"><img src = "../images/gag/gun.png"class ="gagimage"></button>   
+                <button class = "gagbutton squirt" onclick="calculateAccuracy(95)"><img src = "../images/gag/seltzer.png"class ="gagimage"></button>   
+                <button class = "gagbutton squirt" onclick="calculateAccuracy(95)"><img src = "../images/gag/hose.png"class ="gagimage"></button>   
+                <button class = "gagbutton squirt" onclick="calculateAccuracy(95)"><img src = "../images/gag/storm.png"class ="gagimage"></button>   
+                <button class = "gagbutton squirt" onclick="calculateAccuracy(95)"><img src = "../images/gag/geyser.png"class ="gagimage"></button>   
         </div>
         <div class = "column">
-                <button class = "gagbutton drop" onclick="dropDamage(10)"><img src = "../images/gag/pot.png"class ="gagimage"></button>   
-                <button class = "gagbutton drop" onclick="dropDamage(18)"><img src = "../images/gag/sandbag.png"class ="gagimage"></button>   
-                <button class = "gagbutton drop" onclick="dropDamage(30)"><img src = "../images/gag/anvil.png"class ="gagimage"></button>   
-                <button class = "gagbutton drop" onclick="dropDamage(45)"><img src = "../images/gag/weight.png"class ="gagimage"></button>   
-                <button class = "gagbutton drop" onclick="dropDamage(70)"><img src = "../images/gag/safe.png"class ="gagimage"></button>   
-                <button class = "gagbutton drop" onclick="dropDamage(170)"><img src = "../images/gag/piano.png"class ="gagimage"></button>   
-                <button class = "gagbutton drop" onclick="dropDamage(180)"><img src = "../images/gag/boat.png"class ="gagimage"></button>   
+                <button class = "gagbutton drop" onclick="calculateAccuracy(50)"><img src = "../images/gag/pot.png"class ="gagimage"></button>   
+                <button class = "gagbutton drop" onclick="calculateAccuracy(50)"><img src = "../images/gag/sandbag.png"class ="gagimage"></button>   
+                <button class = "gagbutton drop" onclick="calculateAccuracy(50)"><img src = "../images/gag/anvil.png"class ="gagimage"></button>   
+                <button class = "gagbutton drop" onclick="calculateAccuracy(50)"><img src = "../images/gag/weight.png"class ="gagimage"></button>   
+                <button class = "gagbutton drop" onclick="calculateAccuracy(50)"><img src = "../images/gag/safe.png"class ="gagimage"></button>   
+                <button class = "gagbutton drop" onclick="calculateAccuracy(50)"><img src = "../images/gag/piano.png"class ="gagimage"></button>   
+                <button class = "gagbutton drop" onclick="calculateAccuracy(50)"><img src = "../images/gag/boat.png"class ="gagimage"></button>   
         </div>
     </div>
 </body>

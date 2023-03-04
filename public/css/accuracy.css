@@ -12,6 +12,9 @@
     src: url(../fonts/vtRemingtonPortable.ttf);
 }
 
+.invisible{
+    display: none;
+}
 body{
     background-image: url("../images/backgrounds/background-black.jpg");
 }
@@ -54,6 +57,13 @@ h1{
     background-color: #22ffff
 }
 
+h4{
+    text-align:center;
+    font-family: impress;
+    font-size: 18px;
+    color:rgb(255, 252, 252);
+}
+
 .gagbutton{
     
     padding-bottom: .1%;
@@ -74,3 +84,90 @@ h1{
 .column{
     text-align: center;
 }
+
+.infotab{
+    margin-left: 30px;
+    font-family: remington;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+
+/* DROP DOWN MENU */
+
+h2{
+    text-align: center;
+}
+h3{
+    text-align: center;
+}
+
+
+.accuracydisplay{
+    text-align: center;
+    font-size: 28px;
+    font-family: impress;
+    text-shadow: -1px 0 red, 0 1px red, 1px 0 red, 0 -1px red;
+}
+
+.dropdown-content{
+font-family: remington;
+  background-color: black;  
+  color: white;  
+  font-size: 18px;  
+  cursor: pointer;  
+}
+
+.dropbtn {  
+
+  font-family: impress;
+  background-color: black;  
+  color: white;  
+  padding: 14px;  
+  font-size: 18px;  
+  cursor: pointer;  
+}  
+.reset{
+  font-family: impress;
+  background-color: brown; 
+  color: white;  
+  padding: 14px;  
+  font-size: 18px;  
+  cursor: pointer;  
+    
+}
+.reset:hover{
+    background-color: #ffffff;  
+    color:black;
+  }
+  
+.dropbtn:hover {  
+  background-color: brown;  
+}  
+
+.dropdown {  
+  position: relative;  
+  display: inline-block;  
+}  
+  
+.dropdown-content {  
+  display: none;  
+  position: absolute;  
+  background-color: white;  
+  min-width: 100px;  
+  overflow: auto;  
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);  
+}  
+  
+.dropdown-content a {  
+  color: black;  
+  text-decoration: none;  
+  display: block;  
+}  
+  
+.dropdown a:hover {  
+   background-color: #ddd;  
+ }  
+  
+.show {  
+  display: block;  
+}  
