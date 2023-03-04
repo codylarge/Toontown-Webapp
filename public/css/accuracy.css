@@ -1,5 +1,19 @@
+
+@font-face{
+    font-family: minnie;
+    src: url(../fonts/Minnie.TTF);
+}
+@font-face{
+    font-family: impress;
+    src: url(../fonts/Impress.ttf);
+}
+@font-face{
+    font-family: remington;
+    src: url(../fonts/vtRemingtonPortable.ttf);
+}
+
 body{
-    background-image: url("../images/backgrounds/background-red.jpg");
+    background-image: url("../images/backgrounds/background-black.jpg");
 }
 
 h1{
@@ -10,4 +24,53 @@ h1{
     
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 
+}
+
+.calcdata{
+    font-family: remington;
+    text-align: center;
+    font-size: 18px;
+}
+
+.toonup{
+    background-color: rgb(193, 35, 255);
+}
+.trap{
+    background-color: rgb(255, 255, 79);
+}
+.lure{
+    background-color: green;
+}
+.sound{
+    background-color: #224aff;
+}
+.throw{
+    background-color: #ffb222;
+}
+.squirt{
+    background-color: #c5008a;
+}
+.drop{
+    background-color: #22ffff
+}
+
+.gagbutton{
+    
+    padding-bottom: .1%;
+    padding-top: .2%;
+    border-radius: 25%;
+}
+
+.gagimage{
+    
+    border-radius:25%;
+    height: 60px;
+    width: 80px;
+}
+
+.row{
+    text-align: center;
+}
+.column{
+    text-align: center;
 }
