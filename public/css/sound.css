@@ -1,0 +1,78 @@
+@font-face{
+    font-family: minnie;
+    src: url(../fonts/Minnie.TTF);
+}
+@font-face{
+    font-family: impress;
+    src: url(../fonts/Impress.ttf);
+}
+@font-face{
+    font-family: remington;
+    src: url(../fonts/vtRemingtonPortable.ttf);
+}
+
+.content{
+    display: none;
+}
+
+img{
+    height: 20%;
+    width: 35%;
+    border-radius: 1.5vw;
+}
+.comboimages{
+    text-align: center;
+    font-family: minnie;
+    color: white;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    font-size: 3vw;
+}
+
+.collapse{ /* Button */
+    padding: 20px 90px 20px;
+    
+    margin-bottom: 5%;
+
+    border: 2px solid black;
+    border-radius: 10px;
+
+    font-size: 16px;
+    font-family: impress;
+
+    background-color: #FFA3A3;
+    color:black;
+}
+
+.collapse:hover{
+    transform: scale(1.2) perspective(1px);
+    background-color: #FF6767;
+    color:white;
+}
+
+.collapse:active{
+    background-color: #FF0F0F;
+    color:white;
+}
+
+body{
+    text-align: center;
+    background-image: url("../images/backgrounds/background-red.jpg");
+}
+
+h1{
+    text-align: center;
+    font-family: minnie;
+    font-size: 64px;
+    color: white;
+    
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+
+}
+
+footer{
+    font-family: remington;
+    font-size: 2vw;
+    text-align: center;
+    padding-top: 90%;
+}
+
