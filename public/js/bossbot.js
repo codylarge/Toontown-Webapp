@@ -1,7 +1,8 @@
-const XLSX = require("xlsx");
-const workbook = XLSX.readFile("../exceldata/bossbot.xlsx");
-const worksheet = workbook.Sheets["Sheet1"];
-
-const arrSuits = XLSX.utils.sheet_to_json(worksheet);
-
-console.log(arrSuits);
+function toggleInfo(cog){
+    var x = document.getElementById(cog);
+    if(x.style.display == "block"){
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+}

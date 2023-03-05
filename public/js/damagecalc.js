@@ -2,7 +2,9 @@ function setLastDamage(damage){
     document.getElementById("lastdamage").innerHTML = damage;
 }
 
+
 //TODO: MAKE TRAP, DROP, LURE CANCEL COMBO
+//    : DECLARE ELEMENTS AT TOP OF METHODS
 //DAMAGE TYPES
 function dealDamage(damage, track) {
     var element = document.getElementById("displayedDamage");

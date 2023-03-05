@@ -6,6 +6,10 @@
     font-family: impress;
     src: url(../fonts/Impress.ttf);
 }
+@font-face{
+    font-family: remington;
+    src: url(../fonts/vtRemingtonPortable.ttf);
+}
 
 h1{
     padding-bottom: 5%;
@@ -13,30 +17,69 @@ h1{
     color: white;
     font-size: 72px;
     text-shadow: .35vw .3vw black;
-}
-body{
-    background-image: url("../images/backgrounds/background-blue.png");
     text-align: center;
 }
 
-.button{
-    display: inline-block;
-    border: 10px solid black;
-    margin-bottom: 3%;
-    margin-left: 2%;
-    margin-right: 2%;
-    
-    width: 300px;
-    height: 600px;
 
-    font-size: 48px;
-    font-weight: bolder;
-    font-family: impress;
-    border-radius: 5%;
-    color: black;
+body{
+    background-image: url("../images/backgrounds/bossbotfountain.webp");
+    
 }
 
 p{
     font-family: Arial, Helvetica, sans-serif;
     font-size: large;
+}
+
+.cogbutton{
+    padding-top: .2%;
+    margin-left: 5%;
+    background-color: gray;
+    border: 2px solid black;
+    position: relative;
+    
+}
+
+.cogbutton:hover{
+    background-image: linear-gradient(rgb(0 0 0/40%) 0 0);
+}
+
+.cogbutton:active{
+    background-image: linear-gradient(rgb(0 0 0/70%) 0 0);
+}
+
+.cog-container{
+    display: inline;
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.cogimg{
+    width: 250px;
+    height: 500px;
+}
+
+
+
+.coginfo{
+    display:none;
+    color:black;
+    font-size: 24px;
+    font-family: remington;   
+}
+.coginfo{
+    display:none;
+    color:black;
+    font-size: 24px;
+    font-family: remington;   
+}
+
+.levelinput{
+    margin-left:100px;
+    position: absolute;
+}
+
+.single-cog{
+    display: inline;
 }

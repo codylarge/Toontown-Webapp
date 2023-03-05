@@ -1,4 +1,4 @@
-/*const express = require('express');
+const express = require('express');
 const { readFile } = require('fs').promises;
 const app = express();
 
@@ -13,4 +13,3 @@ app.listen(process.env.PORT || 3000, () => console.log('App available on http://
 
 app.use(express.static('public'));
 
-*/
