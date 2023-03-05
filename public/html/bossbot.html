@@ -4,71 +4,86 @@
     <link rel="stylesheet" href="../css/bossbot.css">
     <title>TTR Calculator</title>
     <script type = "text/javascript" src="../js/bossbot.js"></script>
-    <h1>Choose an Suit</h1>
+    <h1>Choose a Cog</h1>
+    <h3>Currently only works on Big Cheeser level 20+</h3>
 </head>
 <body>
     <div class="cog-container">
-        <div class="single-cog">
-            <button class = "cogbutton" onclick="toggleInfo('flunky')"><img src = "../images/cogs/bossbots/Flunky.jpg" class ="cogimg">
-                <h2 class ="coginfo flunkyinfo" id="flunky">Options: 412k
-                    <br>To max: 113hrs
-                    <br>Time spent: 0hrs
+        <div class="single-cog toprow">
+            <button class = "cogbutton cheesebutton" onclick="cheesePrompt()"><img src = "../images/cogs/bossbots/cheeser.jpg" class ="cogimg">
+                <h2 class ="coginfo cheeseinfo" id="cheese">
+                    Level: <t id="level"></t>
+                    <br>Options:<t id="options"></t>
+                    <br>To max:<t id="timetomax"></t>
+                    <br>Time spent:<t id="timespent"></t>
+                    <br>Back 9's:<t id="courses"></t>
+                </h2>
+             </button>
+        </div>
+
+        <div class="single-cog toprow">
+            <button class = "cogbutton" onclick="toggleInfo('raider')"><img src = "../images/cogs/bossbots/corpraider.jpg" class ="cogimg">
+                <h2 class ="coginfo raiderinfo" id="raider">Options: 365K
+                    <br>To max: -
+                    <br>Time spent: -
                 </h2>
             </button>
         </div>
+
+        <div class="single-cog toprow">
+            <button class = "cogbutton" onclick="toggleInfo('headhunter')"><img src = "../images/cogs/bossbots/headhunter.jpg" class ="cogimg">
+                <h2 class ="coginfo headinfo" id="headhunter">Options: 385K              
+                    <br>To max: -
+                    <br>Time spent: -
+                </h2>
+            </button>
+        </div>
+
+        <br>
+        <div class="single-cog">
+            <button class = "cogbutton" onclick="toggleInfo('flunky')"><img src = "../images/cogs/bossbots/Flunky.jpg" class ="cogimg">
+                <h2 class ="coginfo flunkyinfo" id="flunky">Options: 412K
+                    <br>To max: -
+                    <br>Time spent: -
+                </h2>
+            </button>
+        </div>
+
         <div class="single-cog">
             <button class = "cogbutton" onclick="toggleInfo('pencil')"><img src = "../images/cogs/bossbots/Pencil.jpg" class ="cogimg">
-                <h2 class ="coginfo pencilinfo" id="pencil">Options: 411k
-                    <br>To max: 111hrs
-                    <br>Time spent: 2hrs
+                <h2 class ="coginfo pencilinfo" id="pencil">Options: 411K
+                    <br>To max: -
+                    <br>Time spent: -
                 </h2
             ></button>
         </div>
+
         <div class="single-cog">
             <button class = "cogbutton" onclick="toggleInfo('yesman')"><img src = "../images/cogs/bossbots/Yesman.jpg" class ="cogimg">
-                <h2 class ="coginfo yesmaninfo" id="yesman">Options: 408k  
-                    <br>To max: 110hrs
-                    <br>Time spent: 3hrs
+                <h2 class ="coginfo yesmaninfo" id="yesman">Options: 408K  
+                    <br>To max: -
+                    <br>Time spent: -
                 </h2>
             </button>
-            </div>
+        </div>
+
         <div class="single-cog">
             <button class = "cogbutton" onclick="toggleInfo('micro')"><img src = "../images/cogs/bossbots/micromanager.jpg" class ="cogimg">
-                <h2 class ="coginfo microinfo" id="micro">Options: 403k                 
-                    <br>To max: 108hrs
-                    <br>Time spent: 5hrs
+                <h2 class ="coginfo microinfo" id="micro">Options: 403K                 
+                    <br>To max: -
+                    <br>Time spent: -
                 </h2>
             </button>
         </div>
+
         <div class="single-cog">
             <button class = "cogbutton" onclick="toggleInfo('downsizer')"><img src = "../images/cogs/bossbots/downsizer.jpg" class ="cogimg">
-                <h2 class ="coginfo downinfo" id="downsizer">Options: 396k
-                    <br>To max: 106hrs
-                    <br>Time spent: 7hrs
+                <h2 class ="coginfo downinfo" id="downsizer">Options: 396K
+                    <br>To max: -
+                    <br>Time spent: -
                 </h2>
             </button>
         </div>
-        <div class="single-cog">
-            <button class = "cogbutton" onclick="toggleInfo('headhunter')"><img src = "../images/cogs/bossbots/headhunter.jpg" class ="cogimg">
-                <h2 class ="coginfo headinfo" id="headhunter">Options: 385k              
-                    <br>To max: 102hrs
-                    <br>Time spent: 11hrs
-                </h2>
-            </button>
-        </div>
-        <div class="single-cog">
-            <button class = "cogbutton" onclick="toggleInfo('raider')"><img src = "../images/cogs/bossbots/corpraider.jpg" class ="cogimg">
-                <h2 class ="coginfo raiderinfo" id="raider">Options: 365k
-                    <br>To max: 97hrs
-                    <br>Time spent: 16hrs
-                </h2>
-            </button>
-        </div>
-        <div class="single-cog">
-            <button class = "cogbutton"><img src = "../images/cogs/bossbots/cheese.jpg" class ="cogimg">
-        </div>
-        
-
     </div>
 </body>
 </html> 

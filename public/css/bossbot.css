@@ -12,7 +12,6 @@
 }
 
 h1{
-    padding-bottom: 5%;
     font-family: minnie;
     color: white;
     font-size: 72px;
@@ -21,9 +20,18 @@ h1{
 }
 
 
+h3{
+    font-family: minnie;
+    color: white;
+    font-size: 24px;
+    text-shadow: 4px 4px black;
+    text-align: center;
+}
+
+
 body{
     background-image: url("../images/backgrounds/bossbotfountain.webp");
-    
+    text-align:center;
 }
 
 p{
@@ -32,16 +40,18 @@ p{
 }
 
 .cogbutton{
+    
     padding-top: .2%;
-    margin-left: 5%;
-    background-color: gray;
+    margin: 15px;
+    background-color: rgb(212, 212, 212);
     border: 2px solid black;
     position: relative;
     
 }
 
 .cogbutton:hover{
-    background-image: linear-gradient(rgb(0 0 0/40%) 0 0);
+    background-image: linear-gradient(rgb(0 0 0/20%) 0 0);
+    transform: scale(1.1) perspective(1px);
 }
 
 .cogbutton:active{
@@ -61,13 +71,6 @@ p{
 }
 
 
-
-.coginfo{
-    display:none;
-    color:black;
-    font-size: 24px;
-    font-family: remington;   
-}
 .coginfo{
     display:none;
     color:black;
