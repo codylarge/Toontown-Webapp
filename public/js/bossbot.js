@@ -1,28 +1,3 @@
-var stockPattern = new Array();
-stockPattern[0] = 2880;
-stockPattern[1] = 3770;
-stockPattern[2] = 4660;
-stockPattern[3] = 5500;
-stockPattern[4] = 6440;
-stockPattern[5] = 7330;
-stockPattern[6] = 8220;
-stockPattern[7] = 9110;
-stockPattern[8] = 10000;
-stockPattern[9] = 23330;
-
-var timePattern = new Array(); //in MINUTES
-timePattern[0] = 30;
-timePattern[1] = 30; // 0 to account for the fact that its less than 1 hour for each of the first 2 levels 
-timePattern[2] = 45;
-timePattern[3] = 50;
-timePattern[4] = 60;
-timePattern[5] = 70;
-timePattern[6] = 70;
-timePattern[7] = 80;
-timePattern[8] = 90;
-timePattern[9] = 180;
-
-
 
 function toggleInfo(cog){
     var x = document.getElementById(cog);
@@ -58,6 +33,30 @@ function cheeseCalculations(level){
 }
 
 function calculateWithLevel(level){ 
+    var stockPattern = new Array();
+    stockPattern[0] = 2880;
+    stockPattern[1] = 3770;
+    stockPattern[2] = 4660;
+    stockPattern[3] = 5500;
+    stockPattern[4] = 6440;
+    stockPattern[5] = 7330;
+    stockPattern[6] = 8220;
+    stockPattern[7] = 9110;
+    stockPattern[8] = 10000;
+    stockPattern[9] = 23330;
+
+    var timePattern = new Array(); //in MINUTES
+    timePattern[0] = 30;
+    timePattern[1] = 30; // 0 to account for the fact that its less than 1 hour for each of the first 2 levels 
+    timePattern[2] = 45;
+    timePattern[3] = 50;
+    timePattern[4] = 60;
+    timePattern[5] = 70;
+    timePattern[6] = 70;
+    timePattern[7] = 80;
+    timePattern[8] = 90;
+    timePattern[9] = 180;
+
     document.getElementById("level").innerHTML = level;
     var toMaxDisplay = document.getElementById("timetomax");
     var timeSpentDisplay = document.getElementById("timespent");
@@ -72,11 +71,11 @@ function calculateWithLevel(level){
         const cycleStocks = 81240;
         const startingCourses = 45; //15 per cycle
         const startingStocks = 243720; //starting at 20 bc thats when patter begins
-        
-        var spentHours = 28; // hours spent before reaching level 20 cheese
-        var totalTime = 33; //total hours to max from flunky lvl 1
-        var cycleHours = 11; //hours per cycle
-        
+        const totalTime = 33; // when added with spentHours it = total time to max
+        const cycleHours = 11;
+        const spentHours = 28; // hours spent before reaching level 20 cheese
+
+        var minutesToMax;
         var courses;
         var hourDifference; //hours left to max
         var currentCycleTime = 0;
@@ -88,6 +87,7 @@ function calculateWithLevel(level){
             currentCycleTime += timePattern[i];
         }  
         
+        // INITIALIZE VARIABLES
         currentCycleTime = parseInt(currentCycleTime/60); //convert back to hours
         
         meritDifference = startingStocks - currentCycleStocks;
@@ -96,10 +96,12 @@ function calculateWithLevel(level){
         meritDifference -= cycleStocks * levelMult; // adjusts for completed cycle's earned stocks
         hourDifference -= cycleHours * levelMult; 
 
+        // DISPLAYING HOURS
         toMaxDisplay.innerHTML = parseInt(hourDifference) + "hrs";
         timeSpentDisplay.innerHTML = parseInt(totalTime - hourDifference + spentHours) + "hrs";
     
-        var minutesToMax = hourDifference*60;
+        // DISPLAYING TOTAL BACK 9
+        minutesToMax = hourDifference*60;
         courses = minutesToMax/45;
         coursesDisplay.innerHTML  = parseInt(courses);
     
