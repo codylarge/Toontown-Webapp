@@ -11,7 +11,10 @@
     src: url(../fonts/vtRemingtonPortable.ttf);
 }
 
+
+
 h1{
+    margin-top: 0;
     font-family: minnie;
     color: white;
     font-size: 72px;

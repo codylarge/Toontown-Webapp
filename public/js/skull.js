@@ -47,7 +47,7 @@ function startGame(difficulty) {
     } else if(difficulty == 2) {
         minesCount = 11;
     } else if(difficulty == 3) {
-        minesCount = 20;
+        minesCount = 16;
         
     }
     document.getElementById("buttons").style.display = 'none';

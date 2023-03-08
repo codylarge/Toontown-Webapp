@@ -12,7 +12,6 @@
 }
 
 
-
 h1{
     margin-top: 0;
     font-family: minnie;
@@ -33,15 +32,10 @@ h3{
 
 
 body{
-    background-image: url("../images/backgrounds/lawbothq.jpeg");
-    background-size: 100%;
+    background-image: url("../images/backgrounds/sellbothq.jpg");
     text-align:center;
 }
 
-p{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: large;
-}
 
 .cogbutton{
     
