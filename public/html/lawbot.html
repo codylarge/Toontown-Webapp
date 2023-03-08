@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../css/lawbot.css">
+    <title>TTR Calculator</title>
+    <script type = "text/javascript" src="../js/lawbot.js"></script>
+    <h1>Choose Your Suit</h1>
+</head>
+<body>
+    <div class="cog-container">
+        <div class="single-cog toprow">
+            <button class = "cogbutton wigbutton" onclick="wigPrompt()"><img src = "../images/cogs/lawbots/wig.jpg" class ="cogimg">
+                <h2 class ="coginfo wiginfo" id="wig">
+                    Level: <t id="level"></t>
+                    <br>To Max:
+                    <br>Notices: <t id="options"></t>
+                    <br>Time: <t id="timetomax"></t>
+                    <br>D Offices: <t id="courses"></t>
+                    <br>Wasted: <t id="timespent"></t>
+                </h2>
+             </button>
+        </div>
+
+        <div class="single-cog toprow">
+            <button class = "cogbutton" onclick="toggleInfo('eagle')"><img src = "../images/cogs/lawbots/eagle.jpg" class ="cogimg">
+                <h2 class ="coginfo eagleinfo" id="eagle">To Max:
+                    <br>Notices: 225K
+                    <br>Time: 86hrs
+                </h2>
+            </button>
+        </div>
+
+        <div class="single-cog toprow">
+            <button class = "cogbutton" onclick="toggleInfo('doctor')"><img src = "../images/cogs/lawbots/doctor.jpg" class ="cogimg">
+                <h2 class ="coginfo doctorinfo" id="doctor">To Max:           
+                    <br>Notices: 237K
+                    <br>Time: 94hrs
+                </h2>
+            </button>
+        </div>
+
+        <br>
+        <div class="single-cog">
+
+            <button class = "cogbutton" onclick="toggleInfo('feeder')"><img src = "../images/cogs/lawbots/feeder.jpg" class ="cogimg">
+                <h2 class ="coginfo feederinfo" id="feeder">To Max:
+                    <br>Notices: 255K
+                    <br>Time: 123hrs
+                </h2>
+            </button>
+        </div>
+
+        <div class="single-cog">
+            <button class = "cogbutton" onclick="toggleInfo('bloodsucker')"><img src = "../images/cogs/lawbots/bloodsucker.jpg" class ="cogimg">
+                <h2 class ="coginfo bloodsuckerinfo" id="bloodsucker">To Max:
+                    <br>Notices: 253K
+                    <br>Time: 117hrs
+                </h2
+            ></button>
+        </div>
+
+        <div class="single-cog">
+            <button class = "cogbutton" onclick="toggleInfo('talker')"><img src = "../images/cogs/lawbots/talker.jpg" class ="cogimg">
+                <h2 class ="coginfo talkerinfo" id="talker">To Max: 
+                    <br>Notices: 252K
+                    <br>Time: 111hrs
+                </h2>
+            </button>
+        </div>
+
+        <div class="single-cog">
+            <button class = "cogbutton" onclick="toggleInfo('chaser')"><img src = "../images/cogs/lawbots/chaser.jpg" class ="cogimg">
+                <h2 class ="coginfo chaserinfo" id="chaser">To Max:               
+                    <br>Notices: 249K
+                    <br>Time: 106hrs
+                </h2>
+            </button>
+        </div>
+
+        <div class="single-cog">
+            <button class = "cogbutton" onclick="toggleInfo('stabber')"><img src = "../images/cogs/lawbots/stabber.jpg" class ="cogimg">
+                <h2 class ="coginfo stabberinfo" id="stabber">To Max:
+                    <br>Notices: 244K
+                    <br>Time: 100hrs
+                </h2>
+            </button>
+        </div>
+    </div>
+</body>
+</html> 

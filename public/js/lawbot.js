@@ -1,26 +1,26 @@
 var stockPattern = new Array();
-stockPattern[0] = 2880;
-stockPattern[1] = 3770;
-stockPattern[2] = 4660;
-stockPattern[3] = 5500;
-stockPattern[4] = 6440;
-stockPattern[5] = 7330;
-stockPattern[6] = 8220;
-stockPattern[7] = 9110;
-stockPattern[8] = 10000;
-stockPattern[9] = 23330;
+stockPattern[0] = 1780;
+stockPattern[1] = 2330;
+stockPattern[2] = 2880;
+stockPattern[3] = 3430;
+stockPattern[4] = 3980;
+stockPattern[5] = 4530;
+stockPattern[6] = 5080;
+stockPattern[7] = 5630;
+stockPattern[8] = 6180;
+stockPattern[9] = 14400;
 
 var timePattern = new Array(); //in MINUTES
-timePattern[0] = 30;
-timePattern[1] = 30; // 0 to account for the fact that its less than 1 hour for each of the first 2 levels 
-timePattern[2] = 45;
-timePattern[3] = 50;
-timePattern[4] = 60;
-timePattern[5] = 70;
-timePattern[6] = 70;
-timePattern[7] = 80;
-timePattern[8] = 90;
-timePattern[9] = 180;
+timePattern[0] = 21;
+timePattern[1] = 31; // 0 to account for the fact that its less than 1 hour for each of the first 2 levels 
+timePattern[2] = 38;
+timePattern[3] = 42;
+timePattern[4] = 52;
+timePattern[5] = 56;
+timePattern[6] = 63;
+timePattern[7] = 73;
+timePattern[8] = 77;
+timePattern[9] = 168;
 
 
 function toggleInfo(cog){
@@ -32,24 +32,24 @@ function toggleInfo(cog){
     }
 }
 
-function cheesePrompt() {
-    var x = document.getElementById("cheese");
+function wigPrompt() {
+    var x = document.getElementById("wig");
     if(x.style.display == "block"){
         x.style.display = "none";
     } else {
-        var level = parseInt(prompt("Enter Big Cheeser level"));
+        var level = parseInt(prompt("Enter Big Wig level"));
         if(level < 8 || level > 50){
-            alert("Really? You're a level " + level + " Cheese?");
+            alert("Really? You're a level " + level + " Wig?");
         } else if(isNaN(level)){
             
         } else {
-            cheeseCalculations(level);
-            toggleInfo('cheese');
+            wigCalculations(level);
+            toggleInfo('wig');
         }
     }
 }
 
-function cheeseCalculations(level){
+function wigCalculations(level){
     calculateWithLevel(level);
     
 }
@@ -60,7 +60,7 @@ function calculateWithLevel(level){
 
     var toMaxDisplay = document.getElementById("timetomax");
     var timeSpentDisplay = document.getElementById("timespent");
-    var coursesDisplay = document.getElementById("courses");
+    var facilityDisplay = document.getElementById("courses");
 
     if(level < 20){
         underTwenty(level);
@@ -69,9 +69,9 @@ function calculateWithLevel(level){
         // cycle refers to 10 levels as cheese, each cycle ends AFTER max stocks
         const levelMult = getLevelMult(level); // determines how many times level has completed a cycle
         const position = level % 10; // position will correspond with current merits required
-        const cycleStocks = 81240;
-        const startingStocks = 243720; //starting at 20 bc thats when patter begins
-        const spentHours = 30; // hours spent before reaching level 20 not including bosses
+        const cycleCredits = 50220;
+        const startingCredits = 150660; //starting at 20 bc thats when patter begins
+        const spentHours = 22; // hours spent before reaching level 20 not including bosses
         const bossesTo8 = 35 //return the # of bosses completed upon reaching cheese (lvl 8)
         const totalBosses = 77;
 
@@ -79,19 +79,19 @@ function calculateWithLevel(level){
         var hoursToMax; //hours left to max
         var currentCycleTime = 0;
         var meritDifference;
-        var currentCycleStocks = 0; //stocks earned within current cycle
+        var currentCycleCredits = 0; //stocks earned within current cycle
         
         for(i = position - 1; i >= 0; i--){ //start at -1 to avoid counting current levels merits as completed
-            currentCycleStocks += stockPattern[i];
-            currentCycleTime += timePattern[i];
+            currentCycleCredits += stockPattern[i];
+           // currentCycleTime += timePattern[i];
         }  
         
         // INITIALIZE VARIABLES
-        currentCycleTime = parseInt(currentCycleTime/60); //convert back to hours
+        //currentCycleTime = parseInt(currentCycleTime/60); //convert back to hours
         
-        meritDifference = startingStocks - currentCycleStocks;
+        meritDifference = startingCredits - currentCycleCredits;
 
-        meritDifference -= cycleStocks * levelMult; // adjusts for completed cycle's earned stocks
+        meritDifference -= cycleCredits * levelMult; // adjusts for completed cycle's earned stocks
 
         hoursToMax = setTimeValues(level);
         // DISPLAYING HOURS
@@ -129,12 +129,13 @@ function getLevelMult(level){
 
 function setTimeValues(level){ // sets courses as its directly related to time. Returns total hours left to max
     const levelMult = getLevelMult(level);
-    const cycleHours = 12;
+    const cycleHours = 10.5;
     const position = level % 10;
-    const courseTime = 45; //minutes it takes to complete one back 9 course
+    const facilityTime = 21; //minutes it takes to complete one DA office D
 
     const totalBosses = 77;
-    var totalTime = 36; //total time spent up to level 20(without bosses)
+    var totalTime = 24; //total time spent up to level 20(without bosses)
+    var maxTime = 55;
     var currentCycleTime = 0;
     var hoursToMax = 0;
 
@@ -143,10 +144,10 @@ function setTimeValues(level){ // sets courses as its directly related to time. 
     }  
 
     currentCycleTime = parseInt(currentCycleTime/60); // Convert back to hours
-    hoursToMax = totalTime - currentCycleTime;
+    hoursToMax = maxTime - (totalTime + currentCycleTime);
     hoursToMax -= cycleHours * levelMult; 
 
-    document.getElementById("courses").innerHTML  = parseInt((hoursToMax*60)/courseTime); // converts to minutes then divides by 
+    document.getElementById("courses").innerHTML  = parseInt((hoursToMax*60)/facilityTime); // converts to minutes then divides by 
 
     //timeSpentDisplay.innerHTML = ((spentHours + hoursFromBosses) + "hrs");
 
@@ -172,11 +173,11 @@ function underTwenty(level){ //sets HTML values in method
     var facilitiesDisplay = document.getElementById("courses");
     var creditsDisplay = document.getElementById("options");
     var timeLeft;
-    var facilityCredits = 5500; //credits(stocks/notices/etc) per facility (back 9, DA Office D, etc)
-    var facilityTime = 45; //time it takes to do a facility
+    var facilityCredits = 1842; //credits(stocks/notices/etc) per facility (back 9, DA Office D, etc)
+    var facilityTime = 21; //time it takes to do a facility
     var credits;
     var bossesLeft = 42 - (level-8); // 42 = bosses left at lvl 8
-    var maxTime = 143;
+    var maxTime = 55+77;
 
 
 
@@ -184,73 +185,73 @@ function underTwenty(level){ //sets HTML values in method
     switch(level){
         
         case 8: 
-        credits = 350000; //credits left to max
+        credits = 216480; //credits left to max
         timeLeft = parseInt((((credits/facilityCredits)) * facilityTime) / 60) + bossesLeft; // gets time spent in hours
         setProperties(credits, parseInt(((timeLeft - bossesLeft) * 60) / facilityTime), timeLeft, maxTime - timeLeft);
         break;
         
         case 9: 
-        credits = 347000; //credits left to max
+        credits = 214700; //credits left to max
         timeLeft = parseInt((((credits/facilityCredits)) * facilityTime) / 60) + bossesLeft; // gets time spent in hours
         setProperties(credits, parseInt(((timeLeft - bossesLeft) * 60) / facilityTime), timeLeft, maxTime - timeLeft);
         break;
 
         case 10: 
-        credits = 343000; //credits left to max
+        credits = 212370; //credits left to max
         timeLeft = parseInt((((credits/facilityCredits)) * facilityTime) / 60) + bossesLeft; // gets time spent in hours
         setProperties(credits, parseInt(((timeLeft - bossesLeft) * 60) / facilityTime), timeLeft, maxTime - timeLeft);
         break;
 
         case 11: 
-        credits = 339000; //credits left to max
+        credits = 209490; //credits left to max
         timeLeft = parseInt((((credits/facilityCredits)) * facilityTime) / 60) + bossesLeft; // gets time spent in hours
         setProperties(credits, parseInt(((timeLeft - bossesLeft) * 60) / facilityTime), timeLeft, maxTime - timeLeft);
         break;
 
         case 12: 
-        credits = 333000; //credits left to max
+        credits = 206060; //credits left to max
         timeLeft = parseInt((((credits/facilityCredits)) * facilityTime) / 60) + bossesLeft; // gets time spent in hours
         setProperties(credits, parseInt(((timeLeft - bossesLeft) * 60) / facilityTime), timeLeft, maxTime - timeLeft);
         break;
 
         case 13: 
-        credits = 310000; //credits left to max
+        credits = 191660; //credits left to max
         timeLeft = parseInt((((credits/facilityCredits)) * facilityTime) / 60) + bossesLeft; // gets time spent in hours
         setProperties(credits, parseInt(((timeLeft - bossesLeft) * 60) / facilityTime), timeLeft, maxTime - timeLeft);
         break;
 
         case 14: 
-        credits = 307000; //credits left to max
+        credits = 189880; //credits left to max
         timeLeft = parseInt((((credits/facilityCredits)) * facilityTime) / 60) + bossesLeft; // gets time spent in hours
         setProperties(credits, parseInt(((timeLeft - bossesLeft) * 60) / facilityTime), timeLeft, maxTime - timeLeft);
         break;
 
         case 15: 
-        credits = 283780; //credits left to max
+        credits = 175480; //credits left to max
         timeLeft = parseInt((((credits/facilityCredits)) * facilityTime) / 60) + bossesLeft; // gets time spent in hours
         setProperties(credits, parseInt(((timeLeft - bossesLeft) * 60) / facilityTime), timeLeft, maxTime - timeLeft);
         break;
 
         case 16: 
-        credits = 281000; //credits left to max
+        credits = 173700; //credits left to max
         timeLeft = parseInt((((credits/facilityCredits)) * facilityTime) / 60) + bossesLeft; // gets time spent in hours
         setProperties(credits, parseInt(((timeLeft - bossesLeft) * 60) / facilityTime), timeLeft, maxTime - timeLeft);
         break;
 
         case 17: 
-        credits = 277000; //credits left to max
+        credits = 171370; //credits left to max
         timeLeft = parseInt((((credits/facilityCredits)) * facilityTime) / 60) + bossesLeft; // gets time spent in hours
         setProperties(credits, parseInt(((timeLeft - bossesLeft) * 60) / facilityTime), timeLeft, maxTime - timeLeft);
         break;
 
         case 18: 
-        credits = 272500; //credits left to max
+        credits = 168490; //credits left to max
         timeLeft = parseInt((((credits/facilityCredits)) * facilityTime) / 60) + bossesLeft; // gets time spent in hours
         setProperties(credits, parseInt(((timeLeft - bossesLeft) * 60) / facilityTime), timeLeft, maxTime - timeLeft);
         break;
 
         case 19: 
-        credits = 267000; //credits left to max
+        credits = 165060; //credits left to max
         timeLeft = parseInt((((credits/facilityCredits)) * facilityTime) / 60) + bossesLeft; // gets time spent in hours
         setProperties(credits, parseInt(((timeLeft - bossesLeft) * 60) / facilityTime), timeLeft, maxTime - timeLeft);
         break;
@@ -276,111 +277,3 @@ function setProperties(credits, facilities, timeLeft, timeSpent){
     timeSpentDisplay.innerHTML = timeSpent + "hrs";
 }
 
-/* function getHalfCycle(type) {
-    var newArray;
-    if(type == "stock") {
-        newArray = stockPattern;
-        newArray[4] = 23330;
-    } else {
-        var newArray = timePattern;
-        newArray[4] = 180;
-    }
-    return newArray;
-}
-*/
-/*
-
-function calculateWithLevel(level){ 
-    var stockPattern = new Array();
-    stockPattern[0] = 2880;
-    stockPattern[1] = 3770;
-    stockPattern[2] = 4660;
-    stockPattern[3] = 5500;
-    stockPattern[4] = 6440;
-    stockPattern[5] = 7330;
-    stockPattern[6] = 8220;
-    stockPattern[7] = 9110;
-    stockPattern[8] = 10000;
-    stockPattern[9] = 23330;
-
-    var timePattern = new Array(); //in MINUTES
-    timePattern[0] = 30;
-    timePattern[1] = 30; // 0 to account for the fact that its less than 1 hour for each of the first 2 levels 
-    timePattern[2] = 45;
-    timePattern[3] = 50;
-    timePattern[4] = 60;
-    timePattern[5] = 70;
-    timePattern[6] = 70;
-    timePattern[7] = 80;
-    timePattern[8] = 90;
-    timePattern[9] = 180;
-
-    document.getElementById("level").innerHTML = level;
-    var toMaxDisplay = document.getElementById("timetomax");
-    var timeSpentDisplay = document.getElementById("timespent");
-    var coursesDisplay = document.getElementById("courses");
-    if(level < 20){
-        underTwenty(level);
-        return;
-    } else { 
-        // cycle refers to 10 levels as cheese, each cycle ends AFTER max stocks
-        const levelMult = getLevelMult(level); // determines how many times level has completed a cycle
-        const position = level % 10; // position will correspond with current merits required
-        const cycleStocks = 81240;
-        const startingCourses = 45; // 15 per cycle
-        const startingStocks = 243720; //starting at 20 bc thats when patter begins
-        const totalTime = 36; // when added with spentHours it = total time to max
-        const cycleHours = 12;
-        const spentHours = 30; // hours spent before reaching level 20 not including bosses
-        const bossesTo8 = 35 //return the # of bosses completed upon reaching cheese (lvl 8)
-        const totalBosses = 77;
-
-        var hoursFromBosses;
-        var minutesToMax; 
-        var courses;
-        var hourDifference; //hours left to max
-        var currentCycleTime = 0;
-        var meritDifference;
-        var currentCycleStocks = 0; //stocks earned within current cycle
-        
-        for(i = position - 1; i >= 0; i--){ //start at -1 to avoid counting current levels merits as completed
-            currentCycleStocks += stockPattern[i];
-            currentCycleTime += timePattern[i];
-        }  
-        
-        // INITIALIZE VARIABLES
-        currentCycleTime = parseInt(currentCycleTime/60); //convert back to hours
-        
-        meritDifference = startingStocks - currentCycleStocks;
-        hourDifference = totalTime - currentCycleTime;
-
-        meritDifference -= cycleStocks * levelMult; // adjusts for completed cycle's earned stocks
-        hourDifference -= cycleHours * levelMult; 
-
-        // DISPLAYING HOURS
-        //toMaxDisplay.innerHTML = parseInt(hourDifference) + "hrs";
-        //timeSpentDisplay.innerHTML = parseInt(totalTime - hourDifference + spentHours) + "hrs";
-    
-        // DISPLAYING TOTAL BACK 9
-        minutesToMax = hourDifference*60;
-        courses = minutesToMax/45;
-        coursesDisplay.innerHTML  = parseInt(courses);
-    
-
-        // FROM THIS POINT ON, 
-        hoursFromBosses = bossesTo8 + (level-8); // equals time amount of bosses already completed (assuming 1 hr per boss) 
-        
-        timeSpentDisplay.innerHTML = ((spentHours + hoursFromBosses) + "hrs");
-        
-        hourDifference += totalBosses - (hoursFromBosses); // adjusts remaining time to account for bosses
-        toMaxDisplay.innerHTML = hourDifference + "hrs";
-        
-    //this will eventually move out the loop when adding levels 8-19
-        var subs;
-        if(meritDifference - 100000 < 0){ // puts K at end to make it more readable
-            subs = 2;
-        } else { subs = 3; } 
-    
-        return meritDifference.toString().substring(0,subs) + "K"; // returns merits bc this code is sh*t
-    } 
-} */
