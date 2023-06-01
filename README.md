@@ -1,1 +1,1 @@
-LINK TO PAGE: https://codylarge.github.io/ttrcalc/
+LINK TO PAGE: https://codylarge.github.io/Toontown-Webapp/
