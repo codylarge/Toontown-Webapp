@@ -9,7 +9,7 @@ function calculateAccuracy(baseAcc) {
         var accuracy = parseInt(baseAcc);
 
         accuracy += ((trackExp - 1) * 10);
-        accuracy += (stuns*20);
+        accuracy += (stuns*25);
         
         if(tgtDef == 1){
             accuracy += -2; //tgt def -2 for level 1
