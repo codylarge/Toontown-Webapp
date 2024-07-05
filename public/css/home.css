@@ -39,64 +39,29 @@ body{
 
 .button1{
     background-color:#FF3A3A;
-}
-.button1:hover{
-    background-color: #b90006;
-    transform: scale(1.2) perspective(1px);
-}
-.button1:active{
-    background-color: #ff9094;
-}
-.button2{
+}.button2{
     background-color:#68FF33;
-}
-.button2:hover{
-    background-color: #34c200;
-    transform: scale(1.2) perspective(1px);
-}
-.button2:active{
-    background-color: #abff8d;
-}
-.button3{
+}.button3{
     background-color: #7119ff;
-}
-.button3:hover{
-    background-color: #4900be;
-    transform: scale(1.2) perspective(1px);
-}
-.button3:active{
-    background-color: #9e62ff;
-}
-
-.button4{
+}.button4{
     background-color:#3A70FF;
-}
-.button4:hover{
-    background-color: #0035c7;
-    transform: scale(1.2) perspective(1px);
-}
-.button4:active{
-    background-color: #80a2ff;
-}
-.button5{
+}.button5{
     background-color:#ff3fbf;
-}
-.button5:hover{
-    background-color:#b60079;
-    transform: scale(1.2) perspective(1px);
-}
-.button5:active{
-    background-color:#ff91da;
-}
-.button6{
+}.button6{
     background-color:#ffd900;
 }
-.button6:hover{
-    background-color:#aa9100;
+
+.button:hover{
+    filter: brightness(65%); /* Darken on hover */
     transform: scale(1.2) perspective(1px);
 }
-.button6:active{
-    background-color:#ffe969;
+.button:active{
+    filter: brightness(45%); /* Darken on hover */
+    transform: scale(1.2) perspective(1px);
+}
+
+.button span {
+    display: block;
 }
 
 p{
